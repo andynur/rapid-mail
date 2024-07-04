@@ -2,7 +2,8 @@
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/nKmLng?referralCode=rqOHQs)
 
-This project is an email queue server that processes and sends emails using Bun, Redis, PostgreSQL, and MailHog for email testing. The server is designed to handle a high volume of emails efficiently and includes caching to optimize performance.
+This project is an email queue server that processes and sends emails using Bun, Elysia.js, Redis, Drizzle-ORM, PostgreSQL, and MailHog for email testing. The server is designed to handle a high volume of emails efficiently and includes caching to optimize performance.
+
 
 ## Features
 
@@ -90,7 +91,7 @@ Use the `test-endpoints.http` file to test the API endpoints. You can use tools 
 #### Add an Email to the Queue
 
 ```http
-POST http://localhost:3000/emails
+POST http://localhost:3000/api/emails
 Content-Type: application/json
 
 {
@@ -104,7 +105,7 @@ Content-Type: application/json
 #### Retrieve All Emails
 
 ```http
-GET http://localhost:3000/emails
+GET http://localhost:3000/api/emails
 ```
 
 ### Load Testing
