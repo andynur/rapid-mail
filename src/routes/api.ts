@@ -1,16 +1,19 @@
 import { Elysia } from "elysia";
 import { emailHandler } from "../handlers/emailHandler";
+import { addEmailDetailResponse, getEmailDetailResponse } from "../swagger";
 import { emailSchemaValidation } from "../validations/emailSchemaValidation";
 
 const apiRoutes = new Elysia();
 
 apiRoutes.group("/api", (app) =>
 	app
-		.get("/", () => {
-			return new Response("Welcome to Rapid Mail API v1.0!");
+		.get("/emails", emailHandler.getEmail, {
+			detail: getEmailDetailResponse,
 		})
-		.get("/emails", emailHandler.getEmail)
-		.post("/emails", emailHandler.postEmail, { body: emailSchemaValidation })
+		.post("/emails", emailHandler.postEmail, {
+			body: emailSchemaValidation,
+			detail: addEmailDetailResponse,
+		})
 );
 
 export default apiRoutes;
