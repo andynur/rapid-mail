@@ -1,0 +1,38 @@
+[phases.setup]
+commands = [
+  "echo 'Setting up environment variables'"
+]
+
+[phases.install]
+commands = [
+  "echo 'Installing dependencies'",
+  "bun install"
+]
+
+[phases.build]
+commands = [
+  "echo 'Building the application'",
+  "bun run build",
+]
+
+[phases.start]
+commands = [
+  "echo 'Starting the application'",
+  "bun run dev"
+]
+
+[variables]
+DATABASE_URL = "${{ DATABASE_URL }}"
+REDIS_URL = "${{ REDIS_URL }}"
+SMTP_HOST = "${{ SMTP_HOST }}"
+SMTP_PORT = "${{ SMTP_PORT }}"
+SMTP_USER = "${{ SMTP_USER }}"
+SMTP_PASS = "${{ SMTP_PASS }}"
+
+[[services]]
+name = "postgresql"
+plan = "starter"
+
+[[services]]
+name = "redis"
+plan = "starter"
