@@ -1,6 +1,8 @@
 # Rapid Mail Server
 
-This project is an email queue server that processes and sends emails using Node.js, Redis, PostgreSQL, and MailHog for email testing. The server is designed to handle a high volume of emails efficiently and includes caching to optimize performance.
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/nKmLng?referralCode=rqOHQs)
+
+This project is an email queue server that processes and sends emails using Bun, Redis, PostgreSQL, and MailHog for email testing. The server is designed to handle a high volume of emails efficiently and includes caching to optimize performance.
 
 ## Features
 
@@ -9,10 +11,11 @@ This project is an email queue server that processes and sends emails using Node
 - Caching with Redis to improve performance
 - Load testing with k6
 - Integration with MailHog for email testing
+- Swagger UI for API documentation
 
 ## Prerequisites
 
-- Node.js
+- Bun
 - PostgreSQL
 - Redis
 - MailHog
@@ -22,8 +25,8 @@ This project is an email queue server that processes and sends emails using Node
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/email-queue-server.git
-cd email-queue-server
+git clone https://github.com/andynur/rapid-mail.git
+cd rapid-mail
 ```
 
 ### 2. Install Dependencies
@@ -50,6 +53,7 @@ SMTP_PASS=
 Ensure your database schema is up-to-date:
 
 ```bash
+bun run generate
 bun run migrate
 ```
 
@@ -118,6 +122,20 @@ k6 run dist/load-test.js
 
 #### Mailhog Preview
 ![Mailhog Preview](./assets/mailhog-preview.png)
+
+## Swagger UI
+
+Swagger UI is integrated into the project to provide interactive API documentation. You can access the Swagger UI at:
+
+```
+http://localhost:3000/swagger
+```
+
+### Swagger UI Preview
+
+![Swagger UI Preview](./assets/swagger-ui.png)
+
+
 
 ## Deployment
 
